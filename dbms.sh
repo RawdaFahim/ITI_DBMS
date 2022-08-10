@@ -12,9 +12,7 @@ BGreen='\033[1;32m'
 BYellow='\033[1;33m'
 BBlue='\033[1;34m'
 Purple='\033[1;35m'
-#addd something
 
-hhshskhsshkjshskjhskjshs
 
 #Calling the initializer function to give execute permission for all files
 chmod +x db_scripts/initializer.sh
