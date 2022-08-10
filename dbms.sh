@@ -14,9 +14,14 @@ BBlue='\033[1;34m'
 Purple='\033[1;35m'
 
 
+
+
+
 #Calling the initializer function to give execute permission for all files
 chmod +x db_scripts/initializer.sh
 initialization
+
+
 
 
 #Changing the default select prompt string 
