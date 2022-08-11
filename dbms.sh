@@ -18,8 +18,6 @@ chmod +x db_scripts/initializer.sh
 initialization
 
 
-##hsjsjhsshsks
-
 #Changing the default select prompt string 
 PS3="=>"
 
