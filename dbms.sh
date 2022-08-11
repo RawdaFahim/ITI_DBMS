@@ -1,5 +1,4 @@
 #!/bin/bash
-
 source db_scripts/db_create.sh
 source db_scripts/db_delete.sh
 source db_scripts/db_list.sh
