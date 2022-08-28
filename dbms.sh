@@ -6,8 +6,6 @@ source db_scripts/db_connect.sh
 source db_scripts/db_checker.sh
 source db_scripts/initializer.sh
 
-
-
 RED='\033[0;31m'
 NC='\033[0m'
 BGreen='\033[1;32m'
