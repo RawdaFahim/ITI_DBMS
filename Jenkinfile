@@ -19,6 +19,10 @@ pipeline {
         // }
         stage('Integration Testing') {
             steps {
+                def branchName = "${env.BRANCH_NAME}"
+                if(branchName == 'Jenkinss'){
+                    echo 'bla' 
+                }
                 echo 'Run integration test with the main branch to see if it can be merged'
                 sh('git checkout master')
                 sh('git pull origin master')
