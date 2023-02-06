@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('Static Analysis') {
             steps {
+		sh('./build.sh')
                 echo 'Run the static analysis to the code' 
             }
         }
