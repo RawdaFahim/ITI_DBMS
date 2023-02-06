@@ -32,6 +32,7 @@ pipeline {
                 echo 'Run migration testing to check if there is migration and migrate' 
             }
         }
+        
         stage('Unit Testing') {
             steps {
                 echo 'Run Unit Testing' 
