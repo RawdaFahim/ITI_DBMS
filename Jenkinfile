@@ -21,6 +21,7 @@ pipeline {
             steps {
                 echo 'Run integration test with the main branch to see if it can be merged' 
             }
+            
         }
         stage('Migration Testing') {
             steps {
