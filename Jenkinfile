@@ -24,7 +24,8 @@ pipeline {
                 sh('git pull origin master')
                 sh('git checkout Jenkinss')
                 sh('git merge master') 
-                echo 'Yarab'  
+                echo 'Yarab' 
+                 
             }   
         }
         stage('Migration Testing') {
