@@ -1,35 +1,36 @@
 pipeline {
     agent any 
     stages {
-        stage('Static Analysis') {
+        // stage('Static Analysis') {
+        //     steps {
+		// sh('./build.sh')
+        //         echo 'Run the static analysis to the code' 
+        //     }
+        // }
+        // stage('Compile') {
+        //     steps {
+        //         echo 'Compile the source code' 
+        //     }
+        // }
+        // stage('Security Check') {
+        //     steps {
+        //         echo 'Run the security check against the application' 
+        //     }
+        // }
+        stage('Integration Testing') {
             steps {
-		sh('./build.sh')
-                echo 'Run the static analysis to the code' 
+                echo 'Run integration test with the main branch to see if it can be merged' 
+                sh('git status')
             }
         }
-        stage('Compile') {
+        stage('Migration Testing') {
             steps {
-                echo 'Compile the source code' 
+                echo 'Run migration testing to check if there is migration and migrate' 
             }
         }
-        stage('Security Check') {
+        stage('PCode Testing') {
             steps {
-                echo 'Run the security check against the application' 
-            }
-        }
-        stage('Run Unit Tests') {
-            steps {
-                echo 'Run unit tests from the source code' 
-            }
-        }
-        stage('Run Integration Tests') {
-            steps {
-                echo 'Run only crucial integration tests from the source code' 
-            }
-        }
-        stage('Publish Artifacts') {
-            steps {
-                echo 'Save the assemblies generated from the compilation' 
+                echo 'Run Unit Testing' 
             }
         }
     }
