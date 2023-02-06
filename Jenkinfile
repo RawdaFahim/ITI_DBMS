@@ -26,13 +26,14 @@ pipeline {
                 sh('git merge master') 
                 echo 'Yarab'  
             }
+            
         }
         stage('Migration Testing') {
             steps {
                 echo 'Run migration testing to check if there is migration and migrate' 
             }
         }
-        
+
         stage('Unit Testing') {
             steps {
                 echo 'Run Unit Testing' 
