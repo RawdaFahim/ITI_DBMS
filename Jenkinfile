@@ -20,7 +20,6 @@ pipeline {
         stage('Integration Testing') {
             steps {
                 echo 'Run integration test with the main branch to see if it can be merged' 
-                sh('git status')
             }
         }
         stage('Migration Testing') {
@@ -28,7 +27,7 @@ pipeline {
                 echo 'Run migration testing to check if there is migration and migrate' 
             }
         }
-        stage('PCode Testing') {
+        stage('Unit Testing') {
             steps {
                 echo 'Run Unit Testing' 
             }
