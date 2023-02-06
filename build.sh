@@ -1,1 +1,1 @@
-echo "Okaayyyyyy" > /home/rawda/success.txt
+echo "Okaayyyyyy" > ./success.txt
