@@ -25,7 +25,6 @@ pipeline {
                 sh('git checkout Jenkinss')
                 sh('git merge master') 
                 echo 'Yarab' 
-           
             }
         }
         stage('Migration Testing') {
