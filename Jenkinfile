@@ -1,3 +1,7 @@
+def getBuildUser() {
+    return currentBuild.rawBuild.getCause(Cause.UserIdCause).getUserId()
+}
+
 pipeline {
     agent any 
     stages {
@@ -19,6 +23,7 @@ pipeline {
         // }
         stage('Integration Testing') {
             steps {
+                BUILD_USER = getBuildUser()
                 slackSend channel: '#jenkins', 
                           message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER} ${BUILD_USER}"
                 echo 'Run integration test with the main branch to see if it can be merged' 
