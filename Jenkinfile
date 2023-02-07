@@ -31,7 +31,7 @@ pipeline {
 
                 echo "Build full flag: ${BUILD_FULL}"
                 slackSend channel: '#jenkins', 
-                          message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER} ${BUILD_FULL}"
+                          message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER} ${GIT_COMMIT_EMAIL}"
                 echo 'Run integration test with the main branch to see if it can be merged' 
                 // sh('git checkout master')
                 // sh('git pull origin master')
