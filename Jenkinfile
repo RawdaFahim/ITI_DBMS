@@ -30,7 +30,7 @@ pipeline {
                 }
                
                 slackSend channel: '#jenkins', 
-                          message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER} ${GIT_COMMIT_EMAIL} ${currentBuild.result}"
+                          message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}  ${currentBuild.result}"
                 echo 'Run integration test with the main branch to see if it can be merged' 
                 // sh('git checkout toot')
                 // sh('git pull origin master')
@@ -50,10 +50,10 @@ pipeline {
             }
         }
     }
-      post{
-        failure{
-           slackSend channel: '#jenkins', 
-                 message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER} ${GIT_COMMIT_EMAIL}"
-        }
-    }
+    //   post{
+    //     failure{
+    //        slackSend channel: '#jenkins', 
+    //              message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER} ${GIT_COMMIT_EMAIL}"
+    //     }
+    // }
 }
