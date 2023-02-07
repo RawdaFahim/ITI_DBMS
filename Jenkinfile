@@ -10,7 +10,7 @@ pipeline {
                     returnStdout: true
                   ).trim()
                 }
-                
+
                 // slackSend channel: '#jenkins', 
                 //           message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}  "
                 echo 'Run integration test with the main branch to see if it can be merged' 
@@ -31,6 +31,7 @@ pipeline {
                 echo 'Run Unit Testing' 
             }
         }
+        
     }
       post{
         always{
