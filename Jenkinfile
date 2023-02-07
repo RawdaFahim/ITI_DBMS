@@ -22,10 +22,10 @@ pipeline {
         stage('Integration Testing') {
             steps {
                 script{ 
-                    BUILD_FULL = sh (
-                    script: "git log -1 --pretty=%B | grep '\\[jenkins-full]'",
-                    returnStatus: true
-                ) == 0
+                    GIT_COMMIT_EMAIL = sh (
+                    script: 'git --no-pager show -s --format=\'%ae\'',
+                    returnStdout: true
+                  ).trim()
                 }
                
 
