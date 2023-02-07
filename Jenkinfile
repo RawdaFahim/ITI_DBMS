@@ -53,7 +53,10 @@ pipeline {
       post{
         always{
            slackSend channel: '#jenkins', 
-                 message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER} ${GIT_COMMIT_EMAIL} State: ${currentBuild.result}"
+                 message: "Build Started: 
+                            Pipeline: ${env.JOB_NAME}\t Build Number: ${env.BUILD_NUMBER}
+                             Commit Details: ${GIT_COMMIT_EMAIL} 
+                             State: ${currentBuild.result}"
         }
     }
 }
