@@ -19,9 +19,13 @@ pipeline {
         // }
         stage('Integration Testing') {
             steps {
+                committerEmail = sh (
+                script: 'git --no-pager show -s --format=\'%ae\'',
+                returnStdout: true
+                ).trim()
                 
-                // slackSend channel: '#jenkins', 
-                //           message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER} "
+                slackSend channel: '#jenkins', 
+                          message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER} ${committerEmail}"
                 echo 'Run integration test with the main branch to see if it can be merged' 
                 // sh('git checkout master')
                 // sh('git pull origin master')
@@ -41,13 +45,9 @@ pipeline {
             }
         }
     }
-      post{
-        always{
-            committerEmail = sh (
-            script: 'git --no-pager show -s --format=\'%ae\'',
-            returnStdout: true
-            ).trim()
-            slackSend( channel: "#Jenkins", color: "good", message: "$committerEmail")
-        }
-    }
+    //   post{
+    //     always{
+    //         slackSend( channel: "#Jenkins", color: "good", message: "$committerEmail")
+    //     }
+    // }
 }
