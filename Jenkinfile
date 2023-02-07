@@ -1,7 +1,7 @@
-def  committerEmail = sh (
-                script: 'git --no-pager show -s --format=\'%ae\'',
-                returnStdout: true
-                ).trim()
+def  BUILD_FULL = sh (
+    script: "git log -1 --pretty=%B | grep '\\[jenkins-full]'",
+    returnStatus: true
+) == 0
 
 pipeline {
     agent any 
@@ -25,9 +25,9 @@ pipeline {
         stage('Integration Testing') {
             steps {
                
-                
+                echo "Build full flag: ${BUILD_FULL}"
                 slackSend channel: '#jenkins', 
-                          message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER} ${committerEmail}"
+                          message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER} "
                 echo 'Run integration test with the main branch to see if it can be merged' 
                 // sh('git checkout master')
                 // sh('git pull origin master')
