@@ -31,7 +31,6 @@ pipeline {
                 echo 'Run Unit Testing' 
             }
         }
-        
     }
       post{
         always{
