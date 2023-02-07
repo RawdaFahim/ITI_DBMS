@@ -1,24 +1,6 @@
-
-
 pipeline {
     agent any 
     stages {
-        // stage('Static Analysis') {
-        //     steps {
-		// sh('./build.sh')
-        //         echo 'Run the static analysis to the code' 
-        //     }
-        // }
-        // stage('Compile') {
-        //     steps {
-        //         echo 'Compile the source code' 
-        //     }
-        // }
-        // stage('Security Check') {
-        //     steps {
-        //         echo 'Run the security check against the application' 
-        //     }
-        // }
         stage('Integration Testing') {
             steps {
                 script{ 
@@ -28,7 +10,7 @@ pipeline {
                     returnStdout: true
                   ).trim()
                 }
-               
+                
                 // slackSend channel: '#jenkins', 
                 //           message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}  "
                 echo 'Run integration test with the main branch to see if it can be merged' 
