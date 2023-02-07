@@ -1,7 +1,4 @@
-def  BUILD_FULL = sh (
-    script: "git log -1 --pretty=%B | grep '\\[jenkins-full]'",
-    returnStatus: true
-) == 0
+
 
 pipeline {
     agent any 
@@ -24,7 +21,11 @@ pipeline {
         // }
         stage('Integration Testing') {
             steps {
-               
+               BUILD_FULL = sh (
+                    script: "git log -1 --pretty=%B | grep '\\[jenkins-full]'",
+                    returnStatus: true
+                ) == 0
+
                 echo "Build full flag: ${BUILD_FULL}"
                 slackSend channel: '#jenkins', 
                           message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER} "
