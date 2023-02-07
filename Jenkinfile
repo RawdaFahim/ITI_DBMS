@@ -22,10 +22,10 @@ pipeline {
                 slackSend channel: '#jenkins', 
                           message: 'Hello, world'
                 echo 'Run integration test with the main branch to see if it can be merged' 
-                sh('git checkout master')
-                sh('git pull origin master')
-                sh('git checkout testing')
-                sh('git merge master')
+                // sh('git checkout master')
+                // sh('git pull origin master')
+                // sh('git checkout testing')
+                // sh('git merge master')
             }
         }
         stage('Migration Testing') {
