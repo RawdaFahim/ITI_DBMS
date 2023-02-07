@@ -43,8 +43,11 @@ pipeline {
     }
       post{
         always{
-            commitId = sh(returnStdout: true, script: 'git rev-parse HEAD')
-            slackSend( channel: "#Jenkins", color: "good", message: "$commitID")
+            committerEmail = sh (
+            script: 'git --no-pager show -s --format=\'%ae\'',
+            returnStdout: true
+            ).trim()
+            slackSend( channel: "#Jenkins", color: "good", message: "$committerEmail")
         }
     }
 }
