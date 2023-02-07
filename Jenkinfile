@@ -1,3 +1,8 @@
+def  committerEmail = sh (
+                script: 'git --no-pager show -s --format=\'%ae\'',
+                returnStdout: true
+                ).trim()
+
 pipeline {
     agent any 
     stages {
@@ -19,10 +24,7 @@ pipeline {
         // }
         stage('Integration Testing') {
             steps {
-                committerEmail = sh (
-                script: 'git --no-pager show -s --format=\'%ae\'',
-                returnStdout: true
-                ).trim()
+               
                 
                 slackSend channel: '#jenkins', 
                           message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER} ${committerEmail}"
