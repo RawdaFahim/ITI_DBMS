@@ -28,8 +28,6 @@ pipeline {
                   ).trim()
                 }
                
-
-                echo "Build full flag: ${BUILD_FULL}"
                 slackSend channel: '#jenkins', 
                           message: "Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER} ${GIT_COMMIT_EMAIL}"
                 echo 'Run integration test with the main branch to see if it can be merged' 
