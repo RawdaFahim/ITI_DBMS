@@ -21,10 +21,13 @@ pipeline {
         // }
         stage('Integration Testing') {
             steps {
-               BUILD_FULL = sh (
+                script{ 
+                    BUILD_FULL = sh (
                     script: "git log -1 --pretty=%B | grep '\\[jenkins-full]'",
                     returnStatus: true
                 ) == 0
+                }
+               
 
                 echo "Build full flag: ${BUILD_FULL}"
                 slackSend channel: '#jenkins', 
